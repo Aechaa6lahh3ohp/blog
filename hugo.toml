@@ -1,0 +1,49 @@
+# Hugo サイト設定
+# _config.yml (Jekyll) の移行
+
+baseURL = "/blog/"
+title = "Raiole Blog - 遅咲き苦学生の日記"
+locale = "ja-JP"
+defaultContentLanguage = "ja"
+timeZone = "Asia/Tokyo"
+enableRobotsTXT = true
+rssLimit = 20
+
+[params]
+  # Jekyll の site.minima.date_format 相当
+  date_format = "2006-01-02"
+  # ヘッダーバナーのファイル名 (static/assets/img/ 以下)
+  banner = "banner.png"
+  # サイト説明 (Jekyll の site.description 相当)
+  description = ""
+
+  [params.author]
+    name = "The/Rai01e"
+    email = "RvK74@protonmail.com"
+    github_username = "SakuraSystemz"
+    twitter_username = "sakura_systemz"
+
+  [params.minima]
+    # Jekyll の site.minima.skin 相当。assets/css/style.scss の import 対象
+    skin = "dark"
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  # Jekyll の既定 URL (/YYYY/MM/DD/slug/) を維持
+  posts = "/:year/:month/:day/:slug/"
+
+[markup.goldmark.renderer]
+  # 記事中で使われている <br> や <img> などの raw HTML を許可 (Jekyll/kramdown 相当)
+  unsafe = true
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 2

@@ -1,0 +1,29 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ relURL "" }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          {{- with .Site.Params.author.name -}}
+            <li class="p-name">{{ . }}</li>
+          {{- end -}}
+          {{- with .Site.Params.author.email -}}
+            <li><a class="u-email" href="mailto:{{ . }}">{{ . }}</a></li>
+          {{- end -}}
+          {{- with .Site.Params.author.github_username -}}
+            <li><a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          {{- end -}}
+          {{- with .Site.Params.author.twitter_username -}}
+            <li><a href="https://x.com/{{ . }}" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+      <div class="footer-col">
+        {{- with .Site.Params.description -}}
+          <p>{{ . }}</p>
+        {{- end -}}
+      </div>
+    </div>
+  </div>
+</footer>

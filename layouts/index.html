@@ -1,0 +1,30 @@
+{{- define "main" -}}
+<div class="home">
+  {{- with .Params.title -}}
+    <h1 class="page-heading">{{ . }}</h1>
+  {{- end -}}
+
+  {{ .Content }}
+
+  {{- $posts := where .Site.RegularPages "Type" "posts" -}}
+  {{- if gt (len $posts) 0 -}}
+    {{- with .Params.list_title -}}
+      <h2 class="post-list-heading">{{ . }}</h2>
+    {{- end -}}
+    <ul class="post-list">
+      {{- $dateFormat := .Site.Params.date_format | default "Jan 2, 2006" -}}
+      {{- range $posts -}}
+      <li>
+        <span class="post-meta">{{ .Date.Format $dateFormat }}</span>
+        <h3>
+          <a class="post-link" href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </h3>
+      </li>
+      {{- end -}}
+    </ul>
+  {{- end -}}
+
+</div>
+{{- end -}}

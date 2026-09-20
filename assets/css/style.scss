@@ -1,7 +1,7 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
+@charset "utf-8";
 
-@import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
+// minima テーマの SCSS エントリーポイント (Hugo Pipes で処理)
+// スキンは hugo.toml の params.minima.skin に合わせて変更してください。
+@import "minima/skins/dark";
 @import "minima/initialize";
 @import "syntax/syntaxhighlight";

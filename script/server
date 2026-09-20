@@ -1,3 +1,6 @@
 #!/bin/sh
 
-bundle exec jekyll serve
+# ローカル開発用サーバー。
+# 本番 (GitHub Pages /blog 配下) では baseURL="/blog/" が正しいため、
+# ここでは --baseURL / で上書きし http://localhost:1313/ から表示できるようにする。
+hugo server -D --disableFastRender --baseURL /

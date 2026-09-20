@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+{{- with .Site.Params.description -}}
+<meta name="description" content="{{ . }}">
+{{- end -}}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- with .Site.Language.Locale -}}
+<meta property="og:locale" content="{{ . }}">
+{{- end -}}
+<meta name="twitter:card" content="summary">
+{{- with .Site.Params.author.twitter_username -}}
+<meta name="twitter:site" content="@{{ . }}">
+{{- end -}}
+{{- with resources.Get "css/style.scss" | toCSS (dict "targetPath" "css/style.css" "includePaths" (slice "assets/sass")) | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end -}}
+{{- with .OutputFormats.Get "rss" -}}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
+{{- end -}}
+{{- partial "custom-head.html" . -}}

@@ -1,0 +1,21 @@
+{{- define "main" -}}
+<div class="home">
+  <h1 class="page-heading">{{ .Title }}</h1>
+
+  {{ .Content }}
+
+  <ul class="post-list">
+    {{- $dateFormat := .Site.Params.date_format | default "Jan 2, 2006" -}}
+    {{- range .Pages -}}
+    <li>
+      <span class="post-meta">{{ .Date.Format $dateFormat }}</span>
+      <h3>
+        <a class="post-link" href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+      </h3>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}
