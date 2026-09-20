@@ -1,7 +1,7 @@
 # Hugo サイト設定
 # _config.yml (Jekyll) の移行
 
-baseURL = "/blog/"
+baseURL = "https://aechaa6lahh3ohp.github.io/blog/"
 title = "Raiole Blog - 遅咲き苦学生の日記"
 locale = "ja-JP"
 defaultContentLanguage = "ja"
